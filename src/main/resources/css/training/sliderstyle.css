@@ -1,0 +1,11 @@
+.slider > .axis > .axis-minor-tick-mark {
+    -fx-stroke: green;
+}
+
+// .slider .thumb {
+//    -fx-background-radius: 0;
+// }
+
+.slider > .thumb {
+        -fx-shape: "M0, 0L10, 0L5, 10 Z";
+}

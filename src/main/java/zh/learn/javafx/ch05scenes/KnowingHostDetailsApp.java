@@ -1,0 +1,84 @@
+package zh.learn.javafx.ch05scenes;
+
+import javafx.application.Application;
+import javafx.application.HostServices;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import netscape.javascript.JSObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class KnowingHostDetailsApp extends Application {
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage stage) {
+        String yahooURL = "http://www.yahoo.com";
+        Button openURLButton = new Button("Go to Yahoo!");
+        openURLButton.setOnAction(e -> getHostServices().showDocument(yahooURL));
+
+        Button showAlert = new Button("Show Alert");
+        showAlert.setOnAction(e -> showAlert());
+
+        VBox root = new VBox();
+        root.getChildren().addAll(openURLButton, showAlert);
+
+        Map<String, String> hostdetails = getHostDetails();
+        for (Map.Entry<String, String> entry : hostdetails.entrySet()) {
+            String desc = entry.getKey() + ": " + entry.getValue();
+            root.getChildren().addAll(new Label(desc));
+        }
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Knowing the Host");
+        stage.show();
+    }
+
+    protected Map<String, String> getHostDetails() {
+        Map<String, String> map = new HashMap<>();
+        HostServices host = this.getHostServices();
+
+        String codeBase = host.getCodeBase();
+        map.put("CodeBase", codeBase);
+
+        String documentBase = host.getDocumentBase();
+        map.put("DocumentBase", documentBase);
+
+        JSObject js = host.getWebContext();
+        map.put("Environment", js == null ? "Non-Web" : "Web");
+
+        String splashImageURI = host.resolveURI(documentBase, "splash.jpg");
+        map.put("Splash Image URI", splashImageURI);
+
+        return map;
+    }
+
+    protected void showAlert() {
+        HostServices host = getHostServices();
+        JSObject js = host.getWebContext();
+        if (js == null) {
+            Stage s = new Stage(StageStyle.UTILITY);
+            s.initModality(Modality.WINDOW_MODAL);
+
+            Label msgLabel = new Label("This is an FX alert!");
+            Group root = new Group(msgLabel);
+            Scene scene = new Scene(root);
+            s.setScene(scene);
+
+            s.setTitle("FX Alert");
+            s.show();
+        } else {
+            js.eval("window.alert('This is a JavaScript alert!')");
+        }
+    }
+}
