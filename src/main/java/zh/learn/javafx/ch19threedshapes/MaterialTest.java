@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Box;
 import javafx.stage.Stage;
+import zh.learn.javafx.Aux;
 
 public class MaterialTest extends Application {
     public static void main(String[] args) {
@@ -24,9 +25,7 @@ public class MaterialTest extends Application {
         material.setDiffuseColor(Color.TAN);
         box.setMaterial(material);
 
-        box.setTranslateX(250);
-        box.setTranslateY(0);
-        box.setTranslateZ(400);
+        Aux.translate(box, 250, 0, 400);
 
         Box boxWithTexture = new Box(100, 100, 100);
         PhongMaterial textureMaterial = new PhongMaterial();
@@ -39,9 +38,7 @@ public class MaterialTest extends Application {
         boxWithTexture.setTranslateZ(400);
 
         PointLight light = new PointLight();
-        light.setTranslateX(250);
-        light.setTranslateY(100);
-        light.setTranslateZ(300);
+        Aux.translate(light, 250, 100, 300);
 
         Group root = new Group(box, boxWithTexture);
 

@@ -20,9 +20,7 @@ public class DrawModeTest extends Application {
     public void start(Stage stage) {
         Box box = new Box(100, 100, 100);
         box.setDrawMode(DrawMode.LINE);
-        box.setTranslateX(150);
-        box.setTranslateY(0);
-        box.setTranslateZ(400);
+        Aux.translate(box, 150, 0, 400);
 
         Sphere sphere = new Sphere(50, 20);
         sphere.setDrawMode(DrawMode.LINE);
@@ -37,9 +35,7 @@ public class DrawModeTest extends Application {
         cylinder.setTranslateZ(600);
 
         PointLight light = new PointLight();
-        light.setTranslateX(350);
-        light.setTranslateY(100);
-        light.setTranslateZ(300);
+        Aux.translate(light, 350, 100, 300);
 
         Group root = new Group(box, sphere, cylinder, light);
 

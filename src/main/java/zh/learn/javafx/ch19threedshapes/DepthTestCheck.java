@@ -10,6 +10,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import zh.learn.javafx.Aux;
 
 public class DepthTestCheck extends Application {
     public static void main(String[] args) {
@@ -20,15 +21,11 @@ public class DepthTestCheck extends Application {
     public void start(Stage stage) {
         Rectangle red = new Rectangle(100, 100);
         red.setFill(Color.RED);
-        red.setTranslateX(100);
-        red.setTranslateY(100);
-        red.setTranslateZ(400);
+        Aux.translate(red, 100, 100, 400);
 
         Rectangle green = new Rectangle(100, 100);
         green.setFill(Color.GREEN);
-        green.setTranslateX(150);
-        green.setTranslateY(150);
-        green.setTranslateZ(300);
+        Aux.translate(green, 150, 150, 300);
 
         Group center = new Group(green, red);
 

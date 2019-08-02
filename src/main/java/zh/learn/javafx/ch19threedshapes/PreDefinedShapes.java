@@ -9,6 +9,7 @@ import javafx.scene.shape.Box;
 import javafx.scene.shape.Cylinder;
 import javafx.scene.shape.Sphere;
 import javafx.stage.Stage;
+import zh.learn.javafx.Aux;
 
 public class PreDefinedShapes extends Application {
     public static void main(String[] args) {
@@ -18,9 +19,7 @@ public class PreDefinedShapes extends Application {
     @Override
     public void start(Stage stage) {
         Box box = new Box(100, 100, 100);
-        box.setTranslateX(150);
-        box.setTranslateY(0);
-        box.setTranslateZ(400);
+        Aux.translate(box, 150, 0, 400);
 
         Sphere sphere = new Sphere(50);
         sphere.setTranslateX(300);
@@ -33,9 +32,7 @@ public class PreDefinedShapes extends Application {
         cylinder.setTranslateZ(600);
 
         PointLight light = new PointLight();
-        light.setTranslateX(350);
-        light.setTranslateY(100);
-        light.setTranslateZ(300);
+        Aux.translate(light, 350, 100, 300);
 
         Group root = new Group(box, sphere, cylinder, light);
 

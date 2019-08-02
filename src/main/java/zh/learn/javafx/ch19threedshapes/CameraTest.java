@@ -23,9 +23,7 @@ public class CameraTest extends Application {
     public void start(Stage stage) {
         Box box = new Box(100, 100, 100);
         box.setCullFace(CullFace.NONE);
-        box.setTranslateX(250);
-        box.setTranslateY(100);
-        box.setTranslateZ(400);
+        Aux.translate(box, 250, 100, 400);
 
         PerspectiveCamera camera = new PerspectiveCamera(false);
         camera.setTranslateX(100);
@@ -48,9 +46,7 @@ public class CameraTest extends Application {
 
         PointLight greenLight = new PointLight();
         greenLight.setColor(Color.GREEN);
-        greenLight.setTranslateX(250);
-        greenLight.setTranslateY(300);
-        greenLight.setTranslateZ(300);
+        Aux.translate(greenLight, 250, 300, 300);
 
         Group root = new Group(box, redLight, greenLight);
         root.setRotationAxis(Rotate.X_AXIS);

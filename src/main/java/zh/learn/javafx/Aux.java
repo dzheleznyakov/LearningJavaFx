@@ -16,6 +16,12 @@ public class Aux {
                 "-fx-border-color: blue;");
     }
 
+    public static void translate(Node node, double translateX, double translateY, double translateZ) {
+        node.setTranslateX(translateX);
+        node.setTranslateY(translateY);
+        node.setTranslateZ(translateZ);
+    }
+
     public static void showStage(Stage stage, Parent root) {
         Scene scene = new Scene(root);
         stage.setScene(scene);
