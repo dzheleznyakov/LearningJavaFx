@@ -22,6 +22,12 @@ public class Aux {
         node.setTranslateZ(translateZ);
     }
 
+    public static void scale(Node node, double scaleX, double scaleY, double scaleZ) {
+        node.setScaleX(scaleX);
+        node.setScaleY(scaleY);
+        node.setScaleZ(scaleZ);
+    }
+
     public static void showStage(Stage stage, Parent root) {
         Scene scene = new Scene(root);
         stage.setScene(scene);
