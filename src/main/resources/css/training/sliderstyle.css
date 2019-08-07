@@ -7,5 +7,6 @@
 // }
 
 .slider > .thumb {
-        -fx-shape: "M0, 0L10, 0L5, 10 Z";
+//        -fx-shape: "M0, 0L10, 0L5, 10 Z";
+    -fx-shape: "M0, 0L10, 0L10, 3L5, 8L0, 3 Z";
 }
