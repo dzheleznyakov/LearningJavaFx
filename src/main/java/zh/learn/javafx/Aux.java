@@ -1,9 +1,11 @@
 package zh.learn.javafx;
 
+import javafx.beans.property.DoubleProperty;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
+import javafx.scene.control.Slider;
 import javafx.stage.Stage;
 
 public class Aux {
@@ -54,5 +56,13 @@ public class Aux {
         stage.setScene(scene);
         stage.setTitle(title);
         stage.show();
+    }
+
+    public static Slider getSlider(double min, double max, double majorTickUnit, DoubleProperty prop) {
+        Slider slider = new Slider(min, max, prop.get());
+        slider.setMajorTickUnit(majorTickUnit);
+        slider.setShowTickLabels(true);
+        prop.bind(slider.valueProperty());
+        return slider;
     }
 }
