@@ -1,4 +1,4 @@
-package zh.learn.javafx.ch23charts;
+package zh.learn.javafx.ch23charts.piecharts;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
