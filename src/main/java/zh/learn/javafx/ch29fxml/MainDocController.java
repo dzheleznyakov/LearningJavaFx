@@ -1,0 +1,17 @@
+package zh.learn.javafx.ch29fxml;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+
+public class MainDocController {
+    @FXML
+    private Button includedCloseBtn;
+
+    @FXML
+    private CloseBtnController includedCloseBtnController;
+
+    @FXML
+    public void initialize() {
+        System.out.println("MainDocController.initialize()");
+    }
+}
